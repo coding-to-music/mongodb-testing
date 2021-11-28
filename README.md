@@ -30,6 +30,73 @@ Setting up mongodb-mongosh (1.1.4) ...
 Processing triggers for man-db (2.9.1-1) ...
 ```
 
+## Install MongoDB Compass
+```java
+wget https://downloads.mongodb.com/compass/mongodb-compass_1.28.4_amd64.deb
+
+sudo apt update
+
+sudo apt install ./mongodb-compass_1.28.4_amd64.deb
+```
+
+Copy the connection string, then open MongoDB Compass.
+```java
+mongodb+srv://tmc:<password>@cluster0.zadqe.mongodb.net/test
+```
+
+```java
+whereis mongosh
+
+mongosh: /usr/bin/mongosh /usr/share/man/man1/mongosh.1.gz
+
+whereis mongodb-compass
+
+mongodb-compass: /usr/bin/mongodb-compass /usr/lib/mongodb-compass
+```java
+
+## Test mongosh
+
+```java
+mongosh
+```
+
+Output
+```java
+Current Mongosh Log ID: 61a32f3726460f6e84cd524d
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000
+Using MongoDB:          3.6.8
+Using Mongosh:          1.1.4
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+------
+   The server generated these startup warnings when booting:
+   2021-11-13T07:05:05.006+0000: 
+   2021-11-13T07:05:05.006+0000: ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+   2021-11-13T07:05:05.006+0000: **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2021-11-13T07:05:06.477+0000: 
+   2021-11-13T07:05:06.477+0000: ** WARNING: Access control is not enabled for the database.
+   2021-11-13T07:05:06.477+0000: **          Read and write access to data and configuration is unrestricted.
+   2021-11-13T07:05:06.477+0000: 
+   2021-11-13T07:05:06.477+0000: ** WARNING: This server is bound to localhost.
+   2021-11-13T07:05:06.477+0000: **          Remote systems will be unable to connect to this server.
+   2021-11-13T07:05:06.477+0000: **          Start the server with --bind_ip <address> to specify which IP
+   2021-11-13T07:05:06.477+0000: **          addresses it should serve responses from, or with --bind_ip_all to
+   2021-11-13T07:05:06.477+0000: **          bind to all interfaces. If this behavior is desired, start the
+   2021-11-13T07:05:06.477+0000: **          server with --bind_ip 127.0.0.1 to disable this warning.
+   2021-11-13T07:05:06.477+0000: 
+   2021-11-13T07:05:06.477+0000: 
+   2021-11-13T07:05:06.477+0000: ** WARNING: soft rlimits too low. rlimits set to 15391 processes, 1048576 files. Number of processes should be at least 524288 : 0.5 times number of files.
+------
+
+test> 
+```
+
+
 # Read and Write with the Data API (Preview)
 ## Introduction
 The MongoDB Data API lets you read and modify data in MongoDB Atlas over HTTP. You don't need any additional MongoDB drivers, libraries, or connection strings; just a standard HTTP client and a valid API key.
@@ -66,6 +133,11 @@ You can delete a Data API key at any time. Any request that includes a deleted k
 
 ### 3. Send a Data API Request
 You include your Data API key when you call action endpoints that read and write documents in MongoDB. For a list of all available actions & endpoints, see Data API Resources.
+
+```java
+# URL Endpoint
+https://data.mongodb-api.com/app/data-vluta/endpoint/data/beta
+```
 
 You can run the following commands in a shell to make sure everything works and then start exploring:
 
